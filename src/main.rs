@@ -31,35 +31,15 @@ fn main() {
             }
         };
         match operacao.trim() {
-            "adição" => numero = adicao(numero),
-            "subtração" => numero = subtracao(numero),
-            "multiplicação" => numero = multiplicacao(numero),
-            "divisão" => numero = divisao(numero),
-            "porcentagem" => numero = porcentagem(numero),
+            "adição" => numero += num(numero, "somar"),
+            "subtração" => numero -= num(numero, "subtrair"),
+            "multiplicação" => numero *= num(numero, "multiplicar"),
+            "divisão" => numero /= num(numero, "dividir"),
+            "porcentagem" => numero *= num(numero, "porcentagem") / 100.0,
             _ => break numero,
         }
     };
     println!("O resultado final é: {}", resultado);
-}
-
-fn adicao(n: f64) -> f64 {
-    n + num(n, "somar")
-}
-
-fn subtracao(n: f64) -> f64 {
-    n - num(n, "subtrair")
-}
-
-fn multiplicacao(n: f64) -> f64 {
-    n * num(n, "multiplicar")
-}
-
-fn divisao(n: f64) -> f64 {
-    n / num(n, "dividir")
-}
-
-fn porcentagem(n: f64) -> f64 {
-    n * num(n, "porcentagem") / 100.0
 }
 
 fn num(n: f64, tipo: &str) -> f64 {
